@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+/* eslint-disable no-lone-blocks */
 {/*  eslint-disable  */ }
 
 export function App() {
