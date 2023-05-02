@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/51b82a1b-484f-4c22-84ed-dc7dbc71b38e/resourceGroups/adautocampos_group/providers/Microsoft.Web/sites/previdenciario",
+    "appService.deploySubpath": "."
+}
