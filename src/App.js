@@ -4,12 +4,10 @@ import './App.css';
 {/*  eslint-disable  */ }
 
 export function App() {
-  // const texto = `*Nome*\n${nome}\n\n*Telefone*\n${telefone}\n\n*E-mail*\n${email}*Serviço*\n${servico}\n*Mensagem*\n${mensagem}`;
-
   const [nome, setNome] = useState('');
   const [tel, setTel] = useState('');
   const [email, setEmail] = useState('');
-  const [servico] = useState('');
+  const [servico, setServico] = useState('');
   const [mensagem, setMensagem] = useState('');
 
   const handleSubmit = (event) => {
@@ -29,30 +27,20 @@ export function App() {
   };
 
   const handleChangeServico = (event) => {
-    console.log(event.target.value);
+    setServico(event.target.value);
   };
 
   const handleChangeMensagem = (event) => {
     setMensagem(event.target.value);
   };
 
-  // function enviarMensagem() {
-  //   const nome = '';
-  //   const telefone = '';
-  //   const email = '';
-  //   const servico = '';
-  //   const mensagem = '';
-  //   console.log('OK');
-  //   // Verificação
-  //   /*
-  //   if (1!==1) {
-  //     alert();
-  //   } else {
-  //   // Monta mensagem
-  //   const texto = `*Nome*\n${nome}\n\n*Telefone*\n${telefone}\n\n*E-mail*\n${email}*Serviço*\n${servico}\n*Mensagem*\n${mensagem}`;
-  //   }
-  //   */
-  // }
+  function enviarMensagem() {
+    const texto = `Olá, meu nome é: ${nome} e o telefone que utilizo para contato é o ${tel}.
+    Meu e-mail é o ${email}. Estou buscando o serviço de ${servico}.
+    Aqui está minha mensagem: ${mensagem}`;
+
+    window.open(`https://wa.me/+5516999893300?text=${texto}`, '_blank')
+  }
 
   return (
     <>
@@ -598,14 +586,14 @@ export function App() {
                     <option value='none' defaultValue>
                       Selecione o Assunto
                     </option>
-                    <option value='1'>Inventário</option>
-                    <option value='2'>Divórcio</option>
-                    <option value='3'>Trabalhista</option>
-                    <option value='3'>Dano Moral</option>
-                    <option value='3'>Indenização</option>
-                    <option value='3'>Consumidor</option>
-                    <option value='3'>Criminal</option>
-                    <option value='3'>Outros Assunto</option>
+                    <option value='Inventário'>Inventário</option>
+                    <option value='Divórcio'>Divórcio</option>
+                    <option value='Trabalhista'>Trabalhista</option>
+                    <option value='Dano'>Dano Moral</option>
+                    <option value='Indenização'>Indenização</option>
+                    <option value='Consumidor'>Consumidor</option>
+                    <option value='Criminal'>Criminal</option>
+                    <option value='Outros Assunto'>Outros Assuntos</option>
                   </select>
                 </div>
                 <div className='mb-3'>
@@ -624,7 +612,8 @@ export function App() {
             <button
               type='submit'
               className='active:bg-green-700 active:shadow-lg align-center bg-green-500 duration-150 ease-in-out flex focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 font-medium hover:bg-green-600 hover:shadow-lg justify-center mx-auto px-4 py-2.5 rounded shadow-md transition w-full'
-              href='http://wa.me/+55319999999'
+              // href='http://wa.me/+55319999999'
+              onClick={enviarMensagem}
               target='blanket'
             >
               <img
